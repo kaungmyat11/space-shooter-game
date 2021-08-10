@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Vector3 inputPosition;
     private Camera mainCamera;
 
-    [SerializeField] private float maxTimer;
+    [SerializeField] private float timeToShoot;
     private float timer;
 
     [SerializeField] private Transform weaponPrefab;
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        timer = maxTimer;
+        timer = timeToShoot;
 
         screenBound = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z)); // 2.8, 5.0
         playerWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2;
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0f)
         {
-            timer = maxTimer;
+            timer = timeToShoot;
             Instantiate(weaponPrefab, transform.position, Quaternion.identity);
         }
     }

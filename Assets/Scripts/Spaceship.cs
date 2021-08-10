@@ -6,6 +6,7 @@ public class Spaceship : MonoBehaviour
 {
     [SerializeField] protected float health;
     [SerializeField] protected float shootTime;
+    [SerializeField] protected float moveSpeed;
 
     [SerializeField] protected Transform weaponPrefab;
 

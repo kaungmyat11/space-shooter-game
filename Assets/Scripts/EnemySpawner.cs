@@ -9,7 +9,8 @@ public class EnemySpawner : MonoBehaviour
     private float timer;
     [SerializeField] private float maxTimer;
 
-    private float randomNumber;
+    private float xPosition;
+    private Vector3 spawnPosition;
     [SerializeField] private Transform enemyPrefab;
 
 
@@ -25,13 +26,15 @@ public class EnemySpawner : MonoBehaviour
         if (timer <= 0)
         {
             timer = maxTimer;
-            randomNumber = Random.Range(-xBound, xBound);
-            Debug.Log(randomNumber);
+            double randomNum = System.Math.Round(Random.Range(-xBound, xBound), 1);
+            xPosition = (float) randomNum;
+            spawnPosition = new Vector3(xPosition, 5.3f, 0);
+            SpawnEnemy(spawnPosition);
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(Vector3 spawnPosition)
     {
-
+        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }

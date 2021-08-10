@@ -15,7 +15,11 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y >= 5.5f)
+        if (transform.position.y >= 5.5f && isPlayerBullet)
+        {
+            Destroy(gameObject);
+        } 
+        else if (transform.position.y <= -5.5f)
         {
             Destroy(gameObject);
         }
@@ -39,11 +43,11 @@ public class Weapon : MonoBehaviour
 
     private void movePlayerBullet()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, 5.2f), speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, 5.6f), speed * Time.deltaTime);
     }
 
     private void moveEnemyBullet()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.2f), speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.6f), speed * Time.deltaTime);
     }
 }
