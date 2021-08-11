@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
+    [SerializeField] private float damage = 1;
     private bool isPlayerBullet;
 
 

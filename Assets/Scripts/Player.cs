@@ -55,4 +55,12 @@ public class Player : MonoBehaviour
         inputPosition.z = 0;
         transform.position = inputPosition;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy Gun")
+        {
+            Debug.Log("Oh no! Enemy damage player.");
+        }
+    }
 }
